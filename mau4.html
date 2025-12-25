@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Nguyễn Hải Nam</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  color: #1e1b26;
+  overflow-x: hidden;
+
+  /* ===== NỀN HỒNG ===== */
+  background:
+    radial-gradient(circle at top left, #ffd6e8, transparent 60%),
+    radial-gradient(circle at bottom right, #f4b6d9, transparent 60%),
+    linear-gradient(180deg, #ffe3f0, #f3b3d4);
+}
+
+/* ===== CLICK TO ENTER ===== */
+#start {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: rgba(10, 10, 10,65);
+  color: #fff;
+  cursor: pointer;
+  z-index: 20;
+  transition: opacity .4s;
+}
+
+/* ===== GLASS ===== */
+.glass {
+  background: rgba(235, 230, 255, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.35);
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 1100px;
+  width: 100%;
+  padding: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 26px;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ===== LEFT ===== */
+.profile {
+  text-align: center;
+  padding: 26px 20px;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(180,90,150,.6);
+  box-shadow: 0 0 22px rgba(200,120,180,.7);
+  margin-bottom: 14px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #3a1f33;
+}
+
+.bio {
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.6;
+  color: #5a2f4a;
+}
+
+/* ===== RIGHT ===== */
+.top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.clock {
+  padding: 16px 22px;
+  text-align: right;
+}
+
+.time {
+  font-size: 38px;
+  font-weight: 600;
+  color: #3a1f33;
+}
+
+.date {
+  font-size: 14px;
+  color: #6a3f5a;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: #3a1f33;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,.6);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.card-sub {
+  font-size: 13px;
+  color: #6a3f5a;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== CLICK TO ENTER ===== -->
+<div id="start">click to enter</div>
+
+<!-- ===== MUSIC ===== -->
+<audio id="music" loop preload="auto">
+  <source src="123.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== CONTENT ===== -->
+<div class="glass container">
+  <div class="grid">
+
+    <div class="glass profile">
+      <img class="avatar"
+        src="https://i.pinimg.com/736x/4d/b7/e8/4db7e8ab2db37421bde7fca86523d694.jpg">
+      <div class="name">Nguyễn Hải Nam</div>
+      <div class="bio">
+        NamNguyen 🇻🇳<br>
+        Thích socola, code & làm nhạc<br>
+        porfolio này xấu
+      </div>
+    </div>
+
+    <div>
+      <div class="top">
+        <div class="glass clock">
+          <div class="time" id="clock">00:00</div>
+          <div class="date" id="date">--</div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <a class="glass card" href="#"><div class="icon">▶️</div><div><div class="card-title">YouTube</div><div class="card-sub">@bí mật</div></div></a>
+        <a class="glass card" href="#"><div class="icon">🎵</div><div><div class="card-title">TikTok</div><div class="card-sub">@prod.nhn</div></div></a>
+        <a class="glass card" href="#"><div class="icon">💬</div><div><div class="card-title">Discord</div><div class="card-sub">@namnguynx.</div></div></a>
+        <a class="glass card" href="#"><div class="icon">🐙</div><div><div class="card-title">GitHub</div><div class="card-sub">@bí mật</div></div></a>
+        <a class="glass card" href="#"><div class="icon">📧</div><div><div class="card-title">Email</div><div class="card-sub">nhnztx.media@gmail.com</div></div></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const clock = document.getElementById("clock");
+const date = document.getElementById("date");
+
+function updateClock() {
+  const now = new Date();
+  clock.textContent = now.toLocaleTimeString("vi-VN", {hour:"2-digit", minute:"2-digit"});
+  date.textContent = now.toLocaleDateString("vi-VN", {
+    weekday:"long", day:"2-digit", month:"short"
+  });
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+// ===== CLICK TO PLAY MUSIC =====
+const start = document.getElementById("start");
+const music = document.getElementById("music");
+
+start.addEventListener("click", () => {
+  music.volume = 0.7;
+  music.play().catch(()=>{});
+
+  start.style.opacity = "0";
+  setTimeout(() => start.remove(), 400);
+}, { once: true });
+</script>
+
+</body>
+</html>
