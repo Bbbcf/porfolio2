@@ -21,14 +21,12 @@ body {
   color: #1e1b26;
   overflow-x: hidden;
 
-  /* ===== NỀN HỒNG ===== */
   background:
     radial-gradient(circle at top left, #ffd6e8, transparent 60%),
     radial-gradient(circle at bottom right, #f4b6d9, transparent 60%),
     linear-gradient(180deg, #ffe3f0, #f3b3d4);
 }
 
-/* ===== CLICK TO ENTER ===== */
 #start {
   position: fixed;
   inset: 0;
@@ -43,7 +41,6 @@ body {
   transition: opacity .4s;
 }
 
-/* ===== GLASS ===== */
 .glass {
   background: rgba(235, 230, 255, 0.45);
   backdrop-filter: blur(18px);
@@ -52,7 +49,6 @@ body {
   box-shadow: 0 12px 35px rgba(0,0,0,.35);
 }
 
-/* ===== LAYOUT ===== */
 .container {
   max-width: 1100px;
   width: 100%;
@@ -69,7 +65,6 @@ body {
   .grid { grid-template-columns: 1fr; }
 }
 
-/* ===== LEFT ===== */
 .profile {
   text-align: center;
   padding: 26px 20px;
@@ -98,7 +93,6 @@ body {
   color: #5a2f4a;
 }
 
-/* ===== RIGHT ===== */
 .top {
   display: flex;
   justify-content: flex-end;
@@ -121,7 +115,6 @@ body {
   color: #6a3f5a;
 }
 
-/* ===== CARDS ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
@@ -167,15 +160,12 @@ body {
 
 <body>
 
-<!-- ===== CLICK TO ENTER ===== -->
 <div id="start">click to enter</div>
 
-<!-- ===== MUSIC ===== -->
 <audio id="music" loop preload="auto">
   <source src="123.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ===== CONTENT ===== -->
 <div class="glass container">
   <div class="grid">
 
@@ -224,7 +214,6 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-// ===== CLICK TO PLAY MUSIC =====
 const start = document.getElementById("start");
 const music = document.getElementById("music");
 
@@ -239,3 +228,4 @@ start.addEventListener("click", () => {
 
 </body>
 </html>
+
