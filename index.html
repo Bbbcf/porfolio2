@@ -27,6 +27,7 @@ body {
     linear-gradient(180deg, #ffe3f0, #f3b3d4);
 }
 
+/* ===== CLICK TO ENTER ===== */
 #start {
   position: fixed;
   inset: 0;
@@ -34,25 +35,28 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  background: rgba(10, 10, 10,65);
+  background: rgba(10,10,10,.65);
   color: #fff;
   cursor: pointer;
   z-index: 20;
   transition: opacity .4s;
 }
 
+/* ===== GLASS (FAKE + REAL KẾT HỢP) ===== */
 .glass {
-  background: rgba(235, 230, 255, 0.45);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(235, 230, 255, 0.55);
   border-radius: 22px;
-  box-shadow: 0 12px 35px rgba(0,0,0,.35);
+  box-shadow: 0 10px 28px rgba(0,0,0,.32);
 }
 
+/* CHỈ BLUR 1 LẦN */
 .container {
   max-width: 1100px;
   width: 100%;
   padding: 28px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .grid {
@@ -65,6 +69,7 @@ body {
   .grid { grid-template-columns: 1fr; }
 }
 
+/* ===== LEFT ===== */
 .profile {
   text-align: center;
   padding: 26px 20px;
@@ -93,6 +98,7 @@ body {
   color: #5a2f4a;
 }
 
+/* ===== RIGHT ===== */
 .top {
   display: flex;
   justify-content: flex-end;
@@ -115,6 +121,7 @@ body {
   color: #6a3f5a;
 }
 
+/* ===== CARDS ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
@@ -133,7 +140,7 @@ body {
 
 .card:hover {
   transform: translateY(-4px);
-  background: rgba(255,255,255,.6);
+  background: rgba(255,255,255,.65);
 }
 
 .icon {
@@ -154,6 +161,17 @@ body {
 .card-sub {
   font-size: 13px;
   color: #6a3f5a;
+}
+
+/* ===== MOBILE TỐI ƯU ===== */
+@media (max-width: 768px) {
+  .container {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .glass {
+    background: rgba(255, 225, 240, 0.9);
+  }
 }
 </style>
 </head>
@@ -220,7 +238,6 @@ const music = document.getElementById("music");
 start.addEventListener("click", () => {
   music.volume = 0.7;
   music.play().catch(()=>{});
-
   start.style.opacity = "0";
   setTimeout(() => start.remove(), 400);
 }, { once: true });
@@ -228,4 +245,3 @@ start.addEventListener("click", () => {
 
 </body>
 </html>
-
